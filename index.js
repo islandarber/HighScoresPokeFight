@@ -1,12 +1,13 @@
 import express from 'express';
 import {connectDatabase} from './db/client.js';	
 import 'dotenv/config';
+import cors from 'cors';
 import scoresRouter from './routes/scoresRouter.js'
 
 const app = express();
 const PORT = 3000;
 
-
+app.use(cors());
 app.use(express.json());
 app.use('/game', scoresRouter)
 
